@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/happy-logo.jpg.asset.json";
+import logo from "@/assets/happy-logo-tight.jpg.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
-          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-14 w-auto" />
+          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-auto w-56 max-w-full" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             Integrated facility management for residential communities, offices and
             commercial properties — trained people, clear processes, happier spaces.
