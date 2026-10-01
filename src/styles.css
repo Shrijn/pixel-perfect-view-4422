@@ -4,6 +4,68 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Archivo", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@utility btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: var(--gradient-brand);
+  padding: 0.7rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-brand);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand-lg);
+  }
+}
+
+@utility btn-outline-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 2px solid var(--border-strong);
+  padding: 0.65rem 1.35rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--foreground);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  &:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+@utility section {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+  padding-block: 4.5rem;
+}
+
+@utility eyebrow {
+  display: inline-block;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--secondary) 35%, transparent);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
 /*
  * Design system definition.
  *
@@ -59,29 +121,42 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-surface: var(--surface);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-yellow-foreground: var(--brand-yellow-foreground);
+  --color-border-strong: var(--border-strong);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.75rem;
+  --background: oklch(0.995 0.003 95);
+  --foreground: oklch(0.21 0.02 40);
+  --surface: oklch(0.973 0.009 85);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.21 0.02 40);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.21 0.02 40);
+  --primary: oklch(0.55 0.21 28);
+  --primary-foreground: oklch(0.99 0.004 95);
+  --brand-yellow: oklch(0.84 0.17 85);
+  --brand-yellow-foreground: oklch(0.25 0.04 60);
+  --secondary: oklch(0.9 0.12 90);
+  --secondary-foreground: oklch(0.27 0.05 55);
+  --muted: oklch(0.96 0.008 85);
+  --muted-foreground: oklch(0.52 0.025 50);
+  --accent: oklch(0.95 0.045 85);
+  --accent-foreground: oklch(0.3 0.08 40);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.91 0.012 80);
+  --border-strong: oklch(0.55 0.21 28);
+  --input: oklch(0.91 0.012 80);
+  --ring: oklch(0.55 0.21 28);
+  --gradient-brand: linear-gradient(100deg, var(--primary), oklch(0.65 0.2 45));
+  --gradient-warm: linear-gradient(135deg, oklch(0.97 0.03 90), oklch(0.94 0.07 80));
+  --shadow-brand: 0 8px 20px -10px color-mix(in oklab, var(--primary) 55%, transparent);
+  --shadow-brand-lg: 0 16px 34px -12px color-mix(in oklab, var(--primary) 60%, transparent);
+  --shadow-soft: 0 10px 30px -18px oklch(0.3 0.05 50 / 0.45);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

@@ -8,3 +8,9 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Shared site chrome (header, footer) lives in src/routes/__root.tsx via src/components/site-*.tsx, so every page shares one nav.
+- Marketing content lists (e.g. services) live in src/data/*.ts so pages reuse one source.
+- Brand colors and reusable button/section styles are tokens and @utility rules in src/styles.css; components use semantic classes only.
