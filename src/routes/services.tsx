@@ -16,6 +16,8 @@ export const Route = createFileRoute("/services")({
         property: "og:description",
         content: "Every facility service your property needs, delivered under one accountable contract.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ServicesPage,
