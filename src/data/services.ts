@@ -1,12 +1,11 @@
 import {
-  Sparkles,
-  ShieldCheck,
-  Wrench,
-  Leaf,
-  Bug,
-  Droplets,
-  Users,
-  Building2,
+  Armchair,
+  PanelsTopLeft,
+  Building,
+  BriefcaseBusiness,
+  UsersRound,
+  KeyRound,
+  DraftingCompass,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,56 +18,48 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    title: "Housekeeping & Deep Cleaning",
+    title: "Fully Furnished Offices",
     description:
-      "Daily upkeep of lobbies, corridors, washrooms and common areas, plus scheduled deep-clean cycles.",
-    icon: Sparkles,
-    points: ["Trained housekeeping teams", "Checklist-based shifts", "Eco-friendly chemicals"],
+      "Office spaces with furnishings already in place, for businesses looking for a ready-to-use workplace.",
+    icon: Armchair,
+    points: ["Furnished workspace", "Business-ready setting", "Options in Bengaluru"],
   },
   {
-    title: "Security & Manpower",
+    title: "Semi-Furnished Offices",
     description:
-      "Verified, uniformed guards and supervisors for gate control, patrolling and visitor management.",
-    icon: ShieldCheck,
-    points: ["Police-verified staff", "Visitor & vehicle logs", "24x7 shift coverage"],
+      "A practical starting point for businesses that want an office with room to make it their own.",
+    icon: PanelsTopLeft,
+    points: ["Flexible setup", "Space to personalise", "Office space options"],
   },
   {
-    title: "Technical & MEP Maintenance",
+    title: "Bare Shell Office Spaces",
     description:
-      "Preventive and breakdown maintenance for electrical, plumbing, HVAC, lifts, DG sets and pumps.",
-    icon: Wrench,
-    points: ["Planned maintenance calendar", "On-call technicians", "Asset history records"],
+      "An open canvas for businesses planning a workspace tailored to their layout and identity.",
+    icon: Building,
+    points: ["Custom layout potential", "Fit-out flexibility", "Space shaped around your needs"],
   },
   {
-    title: "Landscaping & Horticulture",
-    description: "Garden design, lawn care and plant maintenance that keep your premises green all year.",
-    icon: Leaf,
-    points: ["Seasonal planting", "Irrigation upkeep", "Tree trimming"],
+    title: "Managed Offices",
+    description: "Explore a more supported office setup without starting from a completely empty space.",
+    icon: BriefcaseBusiness,
+    points: ["Managed workspace", "Office-focused setup", "Enquire for current options"],
   },
   {
-    title: "Pest Control & Sanitisation",
-    description: "Scheduled pest management and disinfection programmes for healthy, safe interiors.",
-    icon: Bug,
-    points: ["General & termite control", "Odourless treatments", "Service certificates"],
+    title: "Coworking Spaces",
+    description: "Shared workspaces for people and teams who want a place to work alongside others.",
+    icon: UsersRound,
+    points: ["Shared workspace", "For individuals and teams", "First branch in HSR Layout"],
   },
   {
-    title: "Water Tank & Facade Cleaning",
-    description: "Specialised cleaning for overhead tanks, sumps, glass facades and high-rise exteriors.",
-    icon: Droplets,
-    points: ["Certified rope access", "Water quality checks", "Safety-first SOPs"],
+    title: "Commercial Leasing",
+    description: "Find a commercial space that fits the way your business works in Bengaluru.",
+    icon: KeyRound,
+    points: ["Commercial property options", "Space for your business", "Enquire about availability"],
   },
   {
-    title: "Community & Helpdesk Management",
-    description:
-      "Front-office support, complaint tracking and resident communication with clear turnaround times.",
-    icon: Users,
-    points: ["Single point of contact", "Ticket tracking", "Monthly MIS reports"],
-  },
-  {
-    title: "Integrated Facility Management",
-    description:
-      "One contract covering every service above, managed by a dedicated site manager accountable to you.",
-    icon: Building2,
-    points: ["Single bill, single team", "SLA-backed delivery", "Cost transparency"],
+    title: "Office Interior Solutions",
+    description: "Plan an office interior that reflects your business and makes the space work for your team.",
+    icon: DraftingCompass,
+    points: ["Workspace planning", "Interior solutions", "A space that feels like yours"],
   },
 ];
