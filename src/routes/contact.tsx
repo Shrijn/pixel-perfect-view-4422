@@ -10,12 +10,12 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Request a free site visit or facility management proposal for your apartment, office or commercial property.",
+          "Contact Happy Spaces Infra about office spaces, commercial leasing, coworking and office interior solutions in Bengaluru.",
       },
       { property: "og:title", content: "Contact — Happy Spaces Infra Management" },
       {
         property: "og:description",
-        content: "Tell us about your property and we'll share a tailored facility management proposal.",
+        content: "Tell us about the office space or workspace you're looking for in Bengaluru.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -33,12 +33,12 @@ function ContactPage() {
     const body = [
       `Name: ${data.get("name")}`,
       `Phone: ${data.get("phone")}`,
-      `Property: ${data.get("property")}`,
+      `Workspace requirement: ${data.get("property")}`,
       "",
       String(data.get("message") ?? ""),
     ].join("\n");
     window.location.href = `mailto:vijay@happyspacesinfra.in?subject=${encodeURIComponent(
-      "Facility management enquiry",
+      "Office space enquiry",
     )}&body=${encodeURIComponent(body)}`;
     setSent(true);
   }
@@ -52,11 +52,11 @@ function ContactPage() {
         <div>
           <span className="eyebrow">Contact</span>
           <h1 className="mt-4 font-display text-4xl font-black tracking-tight sm:text-5xl">
-            Let's look at your property
+            Let's find your space
           </h1>
           <p className="mt-4 max-w-lg text-muted-foreground">
-            Share a few details and our team will arrange a free site visit, then send a scope and
-            pricing proposal within two working days.
+            Tell us what kind of office or workspace you are looking for in Bengaluru.
+            We’ll get back to you about available options.
           </p>
 
           <div className="mt-8 space-y-4 text-sm">
@@ -85,7 +85,7 @@ function ContactPage() {
           <div className="grid gap-4">
             <input name="name" required placeholder="Your name" className={field} />
             <input name="phone" required placeholder="Phone number" className={field} />
-            <input name="property" placeholder="Property name / type" className={field} />
+            <input name="property" placeholder="Office or workspace requirement" className={field} />
             <textarea
               name="message"
               rows={5}

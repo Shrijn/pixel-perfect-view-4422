@@ -9,8 +9,7 @@ export function SiteFooter() {
         <div>
           <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-auto w-44 max-w-full" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Integrated facility management for residential communities, offices and
-            commercial properties — trained people, clear processes, happier spaces.
+            Office spaces, coworking, commercial leasing and interior solutions in Bengaluru.
           </p>
         </div>
 
