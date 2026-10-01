@@ -4,6 +4,68 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Archivo", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@utility btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: var(--gradient-brand);
+  padding: 0.7rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-brand);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand-lg);
+  }
+}
+
+@utility btn-outline-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 2px solid var(--border-strong);
+  padding: 0.65rem 1.35rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--foreground);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  &:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+@utility section {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+  padding-block: 4.5rem;
+}
+
+@utility eyebrow {
+  display: inline-block;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--secondary) 35%, transparent);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
 /*
  * Design system definition.
  *
@@ -59,6 +121,10 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-surface: var(--surface);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-yellow-foreground: var(--brand-yellow-foreground);
+  --color-border-strong: var(--border-strong);
 }
 
 :root {
