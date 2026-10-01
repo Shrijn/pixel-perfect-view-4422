@@ -17,7 +17,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-12 w-auto" />
+          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-16 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
