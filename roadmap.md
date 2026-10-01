@@ -1,4 +1,4 @@
-- [ ] Make the logo transparent and medium-sized in the header and footer.
-- [ ] Replace placeholder phone, email, and address everywhere they appear.
-- [ ] Add a polished About section for the HSR Layout coworking branch with realistic illustrative photography.
-- [ ] Check the updated pages at desktop and mobile widths.
+- [x] Make the logo transparent and medium-sized in the header and footer.
+- [x] Replace placeholder phone, email, and address everywhere they appear.
+- [x] Add a polished About section for the HSR Layout coworking branch with realistic illustrative photography.
+- [x] Check the updated pages at desktop and mobile widths.
