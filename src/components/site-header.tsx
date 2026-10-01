@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import logo from "@/assets/happy-logo.jpg.asset.json";
+import logo from "@/assets/happy-logo-tight.jpg.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -15,12 +15,12 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-16 w-auto" />
+      <div className="mx-auto flex h-28 max-w-6xl items-center justify-between gap-4 px-5 md:h-36 lg:h-40">
+        <Link to="/" className="flex shrink-0 items-center" onClick={() => setOpen(false)}>
+          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-auto w-48 md:w-64 lg:w-72" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 md:flex lg:gap-8">
           {links.map((l) => (
             <Link
               key={l.to}
