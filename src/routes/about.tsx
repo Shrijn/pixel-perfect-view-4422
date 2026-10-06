@@ -52,7 +52,6 @@ function AboutPage() {
           <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:gap-14">
             <figure>
               <img src={coworkingImage} alt="Illustration of a contemporary coworking environment" width={1440} height={960} loading="lazy" className="aspect-[3/2] w-full object-cover" />
-              <figcaption className="mt-2 text-xs text-muted-foreground">Illustrative image — not a photograph of our HSR branch.</figcaption>
             </figure>
             <div className="border-l-4 border-primary pl-6">
               <div className="flex items-center gap-2 text-sm font-bold uppercase text-primary"><MapPin className="size-4" /> HSR Layout · Bengaluru</div>
