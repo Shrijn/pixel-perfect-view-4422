@@ -57,8 +57,6 @@ function Index() {
               width={1600}
               height={1008}
               className="relative rounded-lg object-cover shadow-[var(--shadow-soft)]"
-            />
-            <p className="mt-2 text-xs text-muted-foreground">Illustrative image — not a current property listing.</p>
           </div>
         </div>
       </section>
