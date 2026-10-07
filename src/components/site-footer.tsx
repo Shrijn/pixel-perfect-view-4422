@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/happy-logo-transparent.png.asset.json";
+import { logoUrl } from "@/data/brand-assets";
 
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
-          <img src={logo.url} alt="Happy Spaces Infra Management Services" className="h-auto w-44 max-w-full" />
+          <img src={logoUrl} alt="Happy Spaces Infra Management Services" className="h-auto w-44 max-w-full" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             Office spaces, coworking, commercial leasing and interior solutions in Bengaluru.
           </p>

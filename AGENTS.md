@@ -14,3 +14,4 @@
 - Shared site chrome (header, footer) lives in src/routes/__root.tsx via src/components/site-*.tsx, so every page shares one nav.
 - Marketing content lists (e.g. services) live in src/data/*.ts so pages reuse one source.
 - Brand colors and reusable button/section styles are tokens and @utility rules in src/styles.css; components use semantic classes only.
+- Shared logo URLs live in src/data/brand-assets.ts and resolve against the published Lovable origin because the custom-domain host does not serve relative Lovable asset paths.
