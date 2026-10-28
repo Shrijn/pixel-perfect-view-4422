@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyocm6FRkqzhF_Aifc9btu5GAXT7OGlSy4rTFi0Racvi6WQtM656T4Y_3S1xabxQquo-Q/exec";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -25,26 +28,51 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const body = [
-      `Name: ${data.get("name")}`,
-      `Phone: ${data.get("phone")}`,
-      `Workspace requirement: ${data.get("property")}`,
-      "",
-      String(data.get("message") ?? ""),
-    ].join("\n");
-    window.location.href = `mailto:vijay@happyspacesinfra.in?subject=${encodeURIComponent(
-      "Office space enquiry",
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setLoading(true);
+    setStatus("idle");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const payload = {
+      name: String(data.get("name") ?? "").trim(),
+      phone: String(data.get("phone") ?? "").trim(),
+      property: String(data.get("property") ?? "").trim(),
+      message: String(data.get("message") ?? "").trim(),
+    };
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      console.error("Enquiry submission error:", err);
+      setStatus("error");
+      setErrorMessage(
+        "Something went wrong while submitting. Please try again or reach out to us at vijay@happyspacesinfra.in."
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   const field =
-    "w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-primary";
+    "w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-primary disabled:opacity-60";
 
   return (
     <section className="section">
@@ -83,21 +111,59 @@ function ContactPage() {
 
         <form onSubmit={handleSubmit} className="rounded-3xl border border-border bg-surface p-7">
           <div className="grid gap-4">
-            <input name="name" required placeholder="Your name" className={field} />
-            <input name="phone" required placeholder="Phone number" className={field} />
-            <input name="property" placeholder="Office or workspace requirement" className={field} />
+            <input
+              name="name"
+              required
+              disabled={loading}
+              placeholder="Your name"
+              className={field}
+            />
+            <input
+              name="phone"
+              type="tel"
+              required
+              disabled={loading}
+              placeholder="Phone number"
+              className={field}
+            />
+            <input
+              name="property"
+              disabled={loading}
+              placeholder="Office or workspace requirement"
+              className={field}
+            />
             <textarea
               name="message"
               rows={5}
+              disabled={loading}
               placeholder="What do you need help with?"
               className={field}
             />
-            <Button type="submit" className="btn-brand w-full">
-              Send enquiry <Send className="size-4" />
+            <Button type="submit" disabled={loading} className="btn-brand w-full cursor-pointer">
+              {loading ? (
+                <>
+                  Sending enquiry... <Loader2 className="size-4 animate-spin" />
+                </>
+              ) : (
+                <>
+                  Send enquiry <Send className="size-4" />
+                </>
+              )}
             </Button>
-            {sent && (
-              <p className="text-center text-sm font-medium text-primary">
-                Thanks! Your email app should open with the enquiry ready to send.
+            {status === "success" && (
+              <div className="flex items-start gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-emerald-800 dark:text-emerald-200">
+                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <div className="text-left">
+                  <p className="text-sm font-bold">Enquiry sent successfully!</p>
+                  <p className="mt-0.5 text-xs opacity-90">
+                    Thank you for reaching out. We will review your requirement and get back to you shortly.
+                  </p>
+                </div>
+              </div>
+            )}
+            {status === "error" && (
+              <p className="text-center text-sm font-medium text-destructive">
+                {errorMessage}
               </p>
             )}
           </div>
