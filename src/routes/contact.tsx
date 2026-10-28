@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WhatsAppIcon } from "@/components/site-whatsapp";
+import { getWhatsAppUrl } from "@/data/whatsapp";
 
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyocm6FRkqzhF_Aifc9btu5GAXT7OGlSy4rTFi0Racvi6WQtM656T4Y_3S1xabxQquo-Q/exec";
@@ -88,13 +90,24 @@ function ContactPage() {
           </p>
 
           <div className="mt-8 space-y-4 text-sm">
-            <a href="tel:+919731211076" className="flex items-center gap-3 text-foreground">
+            <a href="tel:+919731211076" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
               <span className="flex size-10 items-center justify-center rounded-xl bg-accent">
                 <Phone className="size-4 text-primary" />
               </span>
               +91 97312 11076
             </a>
-            <a href="mailto:vijay@happyspacesinfra.in" className="flex items-center gap-3 break-all text-foreground">
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-foreground hover:text-[#25D366] transition-colors"
+            >
+              <span className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-[#25D366]">
+                <WhatsAppIcon className="size-5" />
+              </span>
+              +91 97312 11076 (WhatsApp Chat)
+            </a>
+            <a href="mailto:vijay@happyspacesinfra.in" className="flex items-center gap-3 break-all text-foreground hover:text-primary transition-colors">
               <span className="flex size-10 items-center justify-center rounded-xl bg-accent">
                 <Mail className="size-4 text-primary" />
               </span>

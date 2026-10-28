@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { logoUrl } from "@/data/brand-assets";
+import { WhatsAppIcon } from "@/components/site-whatsapp";
+import { getWhatsAppUrl } from "@/data/whatsapp";
 
 export function SiteFooter() {
   return (
@@ -27,6 +29,19 @@ export function SiteFooter() {
           <div className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
             <span className="flex items-start gap-2">
               <Phone className="mt-0.5 size-4 shrink-0 text-primary" /> <a href="tel:+919731211076" className="hover:text-primary">+91 97312 11076</a>
+            </span>
+            <span className="flex items-start gap-2">
+              <span className="mt-0.5 size-4 shrink-0 text-[#25D366] flex items-center justify-center">
+                <WhatsAppIcon className="size-4" />
+              </span>
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary"
+              >
+                +91 97312 11076 (WhatsApp)
+              </a>
             </span>
             <span className="flex items-start gap-2">
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" /> <a href="mailto:vijay@happyspacesinfra.in" className="break-all hover:text-primary">vijay@happyspacesinfra.in</a>
